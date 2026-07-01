@@ -42,7 +42,7 @@ func Init() {
 	app.LoadConfig(&cfg)
 	cfg.Mod.Listen = ":8888"
 	cfg.Mod.Origin = "*"
-	cfg.Mod.BasePath = "/webrtc"
+
 	if cfg.Mod.Listen == "" && cfg.Mod.UnixListen == "" && cfg.Mod.TLSListen == "" {
 		return
 	}
