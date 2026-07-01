@@ -39,7 +39,7 @@ func Init() {
 
 	// default config
 	cfg.Mod.Listen = ":8888"
-	cfg.Mod.Listen = ":*"
+	cfg.Mod.Origin = "*"
 
 	// load config from YAML
 	app.LoadConfig(&cfg)
