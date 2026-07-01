@@ -24,7 +24,7 @@ func Init() {
 	}
 
 	app.LoadConfig(&cfg)
-
+	cfg.Mod.Origin = "*"
 	log = app.GetLogger("api")
 
 	initWS(cfg.Mod.Origin)
