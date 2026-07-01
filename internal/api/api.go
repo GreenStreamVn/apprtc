@@ -21,18 +21,17 @@ import (
 func Init() {
 	var cfg struct {
 		Mod struct {
-			Listen     string `yaml:"listen"`
-			Username   string `yaml:"username"`
-			Password   string `yaml:"password"`
-			LocalAuth  bool   `yaml:"local_auth"`
-			BasePath   string `yaml:"base_path"`
-			StaticDir  string `yaml:"static_dir"`
-			Origin     string `yaml:"origin"`
-			TLSListen  string `yaml:"tls_listen"`
-			TLSCert    string `yaml:"tls_cert"`
-			TLSKey     string `yaml:"tls_key"`
-			UnixListen string `yaml:"unix_listen"`
-
+			Listen     string   `yaml:"listen"`
+			Username   string   `yaml:"username"`
+			Password   string   `yaml:"password"`
+			LocalAuth  bool     `yaml:"local_auth"`
+			BasePath   string   `yaml:"base_path"`
+			StaticDir  string   `yaml:"static_dir"`
+			Origin     string   `yaml:"origin"`
+			TLSListen  string   `yaml:"tls_listen"`
+			TLSCert    string   `yaml:"tls_cert"`
+			TLSKey     string   `yaml:"tls_key"`
+			UnixListen string   `yaml:"unix_listen"`
 			AllowPaths []string `yaml:"allow_paths"`
 		} `yaml:"api"`
 	}
@@ -43,6 +42,7 @@ func Init() {
 	app.LoadConfig(&cfg)
 	cfg.Mod.Listen = ":8888"
 	cfg.Mod.Origin = "*"
+	cfg.Mod.BasePath = "/webrtc"
 	if cfg.Mod.Listen == "" && cfg.Mod.UnixListen == "" && cfg.Mod.TLSListen == "" {
 		return
 	}
