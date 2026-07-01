@@ -38,12 +38,11 @@ func Init() {
 	}
 
 	// default config
-	cfg.Mod.Listen = ":8888"
-	cfg.Mod.Origin = "*"
 
 	// load config from YAML
 	app.LoadConfig(&cfg)
-
+	cfg.Mod.Listen = ":8888"
+	cfg.Mod.Origin = "*"
 	if cfg.Mod.Listen == "" && cfg.Mod.UnixListen == "" && cfg.Mod.TLSListen == "" {
 		return
 	}
